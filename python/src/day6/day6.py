@@ -1,13 +1,9 @@
 from pathlib import Path
 from typing import List
 
+from src.utils import get_one_line_input
+
 path_input = Path(__file__).parent.joinpath("input.txt")
-
-
-def load_input():
-    with open(path_input, "r") as f:
-        elts = f.readline().strip().split(",")
-    return elts
 
 
 def next_step(li: List[int]) -> List[int]:
@@ -20,7 +16,7 @@ def next_step(li: List[int]) -> List[int]:
 
 def day6(nb_days):
     l = [0] * 9
-    for e in load_input():
+    for e in get_one_line_input(path_input):
         l[int(e)] += 1
     print(f"Initial state {l}")
     for i in range(1, nb_days + 1):
