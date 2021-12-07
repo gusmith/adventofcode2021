@@ -1,5 +1,5 @@
 from pathlib import Path
-from typing import List, Tuple, Optional
+from typing import List, Optional, Tuple
 
 path_input = Path(__file__).parent.joinpath("input.txt")
 
@@ -7,14 +7,19 @@ path_input = Path(__file__).parent.joinpath("input.txt")
 class Board:
     def __init__(self, lines_str: List[str]):
         assert len(lines_str) == 5, "A board should only have 5 lines"
-        self.board: List[List[int]] = [[int(nb) for nb in s.strip().replace("  ", " ").split(' ')] for s in lines_str]
+        self.board: List[List[int]] = [
+            [int(nb) for nb in s.strip().replace("  ", " ").split(" ")]
+            for s in lines_str
+        ]
         assert len(self.board) == 5
         for e in self.board:
             assert len(e) == 5
 
     def check_finished(self) -> bool:
         for i in range(len(self.board)):
-            if set(self.board[i][:]) == {-1} or set([row[i] for row in self.board]) == {-1}:
+            if set(self.board[i][:]) == {-1} or set([row[i] for row in self.board]) == {
+                -1
+            }:
                 return True
         # if {self.board[i][i] for i in range(len(self.board))} == {-1} or {self.board[i][len(self.board) - i - 1] for i in range(len(self.board))} == {-1}:
         #     return True
@@ -40,18 +45,17 @@ class Board:
 
     def pretty_print(self):
         for row in self.board:
-            _row = [str(e) if e != -1 else 'X' for e in row]
-            print(', '.join(_row))
+            _row = [str(e) if e != -1 else "X" for e in row]
+            print(", ".join(_row))
 
 
 class SolverPart1:
-
     def __init__(self):
         self.boards = []
         self.list_selected_balls = None
-        with open(path_input, 'r') as f:
+        with open(path_input, "r") as f:
             first_line = f.readline()
-            self.list_selected_balls = [int(s) for s in first_line.strip().split(',')]
+            self.list_selected_balls = [int(s) for s in first_line.strip().split(",")]
 
             current_board = []
             for row in f:
@@ -83,7 +87,6 @@ class SolverPart1:
 
 
 class SolverPart2(SolverPart1):
-
     def iterate_over_boards(self, nb: int) -> Optional[int]:
         boards_to_remove = []
         for board in self.boards:
@@ -107,7 +110,7 @@ class SolverPart2(SolverPart1):
         return None
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print("# Part 1")
     solver = SolverPart1()
     solver.iterate_over_balls()
@@ -115,4 +118,3 @@ if __name__ == '__main__':
     print("\n#Part 2")
     solver2 = SolverPart2()
     solver2.iterate_over_balls()
-
