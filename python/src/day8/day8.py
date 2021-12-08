@@ -31,50 +31,50 @@ class SolverPart2:
     def is_number_0(self, this_number: Set[str]) -> bool:
         return (
             len(this_number) == 6
-            and this_number.issuperset(set(self.number_1))
-            and len(this_number.intersection(set(self.number_4))) == 3
-            and this_number.issuperset(set(self.number_7))
+            and this_number.issuperset(self.number_1)
+            and len(this_number.intersection(self.number_4)) == 3
+            and this_number.issuperset(self.number_7)
         )
 
     def is_number_2(self, this_number: Set[str]) -> bool:
         return (
             len(this_number) == 5
-            and len(this_number.intersection(set(self.number_1))) == 1
-            and len(this_number.intersection(set(self.number_4))) == 2
-            and len(this_number.intersection(set(self.number_7))) == 2
+            and len(this_number.intersection(self.number_1)) == 1
+            and len(this_number.intersection(self.number_4)) == 2
+            and len(this_number.intersection(self.number_7)) == 2
         )
 
     def is_number_3(self, this_number: Set[str]) -> bool:
         return (
             len(this_number) == 5
-            and this_number.issuperset(set(self.number_1))
-            and len(this_number.intersection(set(self.number_4))) == 3
-            and this_number.issuperset(set(self.number_7))
+            and this_number.issuperset(self.number_1)
+            and len(this_number.intersection(self.number_4)) == 3
+            and this_number.issuperset(self.number_7)
         )
 
     def is_number_5(self, this_number: Set[str]) -> bool:
         return (
             len(this_number) == 5
-            and len(this_number.intersection(set(self.number_1))) == 1
-            and len(this_number.intersection(set(self.number_4))) == 3
-            and len(this_number.intersection(set(self.number_7))) == 2
+            and len(this_number.intersection(self.number_1)) == 1
+            and len(this_number.intersection(self.number_4)) == 3
+            and len(this_number.intersection(self.number_7)) == 2
         )
 
     def is_number_6(self, this_number: Set[str]) -> bool:
         return (
             len(this_number) == 6
-            and len(this_number.intersection(set(self.number_1))) == 1
-            and len(this_number.intersection(set(self.number_4))) == 3
-            and len(this_number.intersection(set(self.number_7))) == 2
+            and len(this_number.intersection(self.number_1)) == 1
+            and len(this_number.intersection(self.number_4)) == 3
+            and len(this_number.intersection(self.number_7)) == 2
         )
 
     def is_number_9(self, this_number: Set[str]) -> bool:
 
         return (
             len(this_number) == 6
-            and this_number.issuperset(set(self.number_1))
-            and this_number.issuperset(set(self.number_4))
-            and this_number.issuperset(set(self.number_7))
+            and this_number.issuperset(self.number_1)
+            and this_number.issuperset(self.number_4)
+            and this_number.issuperset(self.number_7)
         )
 
     def find_number(self, this_number: str) -> int:
