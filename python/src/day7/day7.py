@@ -14,17 +14,20 @@ def day7(input_list):
 
 
 def day7_part2_brute_force(input_list):
-    l = [0] * (max(input_list) + 1)
+    index_count = [0] * (max(input_list) + 1)
     for e in input_list:
-        l[e] += 1
+        index_count[e] += 1
 
     def count(index):
         return sum(
-            [x * abs(index - i) * (abs(index - i) + 1) / 2 for i, x in enumerate(l)]
+            [
+                x * abs(index - i) * (abs(index - i) + 1) / 2
+                for i, x in enumerate(index_count)
+            ]
         )
 
     min_consumption = None
-    for i in range(0, len(l)):
+    for i in range(0, len(index_count)):
         consumption = count(i)
         if min_consumption is None or min_consumption > consumption:
             min_consumption = consumption
