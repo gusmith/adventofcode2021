@@ -10,6 +10,7 @@ def day7(input_list):
     optimal = median(input_list)
     fuel_consumption = sum([abs(e - optimal) for e in input_list])
     print(f"Optimal point {optimal}, fuel cost {fuel_consumption}")
+    return optimal, fuel_consumption
 
 
 def day7_part2_brute_force(input_list):
@@ -29,14 +30,10 @@ def day7_part2_brute_force(input_list):
             min_consumption = consumption
             continue
         print(f"Min consumption {min_consumption} at index {i-1}")
-        break
+        return i - 1, min_consumption
 
 
 if __name__ == "__main__":
-    print("# Test")
-    test_input = [16, 1, 2, 0, 4, 2, 7, 1, 2, 14]
-    day7(test_input)
-
     print("# Part 1")
     part1_input = [int(e) for e in get_one_line_input(path_input)]
     day7(part1_input)
