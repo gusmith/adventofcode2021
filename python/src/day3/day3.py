@@ -6,9 +6,9 @@ from src.utils import get_csv_line_iterator
 path_input = Path(__file__).parent.joinpath("input.csv")
 
 
-def _bit_list_to_int(l: List[int]):
+def _bit_list_to_int(bit_list: List[int]):
     val = 0
-    for bit in l:
+    for bit in bit_list:
         val = (val << 1) | bit
     return val
 

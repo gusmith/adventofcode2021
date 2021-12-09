@@ -1,4 +1,4 @@
-from day7.day7 import day7, day7_part2_brute_force
+from src.day7.day7 import day7, day7_part2_brute_force
 
 test_input = [16, 1, 2, 0, 4, 2, 7, 1, 2, 14]
 

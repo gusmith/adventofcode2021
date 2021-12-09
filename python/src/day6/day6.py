@@ -15,13 +15,13 @@ def next_step(li: List[int]) -> List[int]:
 
 
 def day6(nb_days):
-    l = [0] * 9
+    sol = [0] * 9
     for e in get_one_line_input(path_input):
-        l[int(e)] += 1
-    print(f"Initial state {l}")
+        sol[int(e)] += 1
+    print(f"Initial state {sol}")
     for i in range(1, nb_days + 1):
-        l = next_step(l)
-    print(f"After {nb_days} day: {l}, sum {sum(l)}")
+        sol = next_step(sol)
+    print(f"After {nb_days} day: {sol}, sum {sum(sol)}")
 
 
 if __name__ == "__main__":

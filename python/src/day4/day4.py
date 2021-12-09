@@ -21,8 +21,6 @@ class Board:
                 -1
             }:
                 return True
-        # if {self.board[i][i] for i in range(len(self.board))} == {-1} or {self.board[i][len(self.board) - i - 1] for i in range(len(self.board))} == {-1}:
-        #     return True
         return False
 
     def sum_remaining_element(self) -> int:

@@ -1,8 +1,8 @@
+import typing
 from pathlib import Path
 from typing import Tuple
 
 import numpy as np
-from numpy import ndarray
 
 path_input = Path(__file__).parent.joinpath("input.txt")
 
@@ -14,6 +14,8 @@ def parse_line(line: str) -> Tuple[Tuple[int, int], Tuple[int, int]]:
     first = tuple(int(e) for e in splittouille[0].split(","))
     second = tuple(int(e) for e in splittouille[1].split(","))
     assert len(first) == len(second) == 2
+    first = typing.cast(Tuple[int, int], first)
+    second = typing.cast(Tuple[int, int], second)
     return first, second
 
 
