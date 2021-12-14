@@ -62,7 +62,8 @@ def handle_row(row: str) -> Tuple[int, int]:
 def part1(str_list: List[str]) -> int:
     sol = 0
     for row in str_list:
-        sol += handle_row(row)[0]
+        val = max(handle_row(row)[0], 0)
+        sol += val
     return sol
 
 
