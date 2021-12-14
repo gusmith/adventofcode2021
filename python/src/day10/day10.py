@@ -5,26 +5,11 @@ import numpy as np
 
 path_input = Path(__file__).parent.joinpath("input.txt")
 
-mapped_chars = {
-    ')': '(',
-    ']': '[',
-    '}': '{',
-    '>': '<'
-}
+mapped_chars = {")": "(", "]": "[", "}": "{", ">": "<"}
 
-mapped_score_illegal = {
-    ')': 3,
-    ']': 57,
-    '}': 1197,
-    '>': 25137
-}
+mapped_score_illegal = {")": 3, "]": 57, "}": 1197, ">": 25137}
 
-mapped_score_not_finished = {
-    '(': 1,
-    '[': 2,
-    '{': 3,
-    '<': 4
-}
+mapped_score_not_finished = {"(": 1, "[": 2, "{": 3, "<": 4}
 
 
 def load_input() -> List[str]:
@@ -36,15 +21,15 @@ def load_input() -> List[str]:
 
 
 def handle_row(row: str) -> Tuple[int, int]:
-    """
-    Handles a row for both use case.
-    First returned int is for the illegal case, the second for the unfinished row
+    """Handles a row for both use case. First returned int is for the illegal
+    case, the second for the unfinished row.
+
     :param row:
     :return:
     """
     s = ""
     for character in row:
-        if character in ['[', '(', '<', '{']:
+        if character in ["[", "(", "<", "{"]:
             s += character
         else:
             last_opened_char = s[-1]
@@ -54,7 +39,7 @@ def handle_row(row: str) -> Tuple[int, int]:
                 # illegal
                 return mapped_score_illegal[character], 0
     sol = 0
-    for i in range(len(s)-1, -1, -1):
+    for i in range(len(s) - 1, -1, -1):
         sol = sol * 5 + mapped_score_not_finished[s[i]]
     return -1, sol
 
@@ -76,7 +61,7 @@ def part2(str_list: List[str]) -> int:
     return int(np.median(sol))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     input_day10 = load_input()
 
     print("# Part 1")

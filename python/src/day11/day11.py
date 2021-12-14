@@ -2,8 +2,6 @@ import copy
 from pathlib import Path
 from typing import List, Tuple
 
-import numpy as np
-
 path_input = Path(__file__).parent.joinpath("input.txt")
 
 
@@ -12,9 +10,12 @@ def load_input() -> List[List[int]]:
         return [[int(elt) for elt in row.strip()] for row in f.readlines()]
 
 
-def increase_adjacent(current_state: List[List[int]], current_x: int, current_y: int) -> Tuple[List[List[int]], List[Tuple[int, int]]]:
-    """
-    Explose all the adjacent cases and return a list of all the newly exploded cases
+def increase_adjacent(
+    current_state: List[List[int]], current_x: int, current_y: int
+) -> Tuple[List[List[int]], List[Tuple[int, int]]]:
+    """Explose all the adjacent cases and return a list of all the newly
+    exploded cases.
+
     :param current_state:
     :param current_x:
     :param current_y:
@@ -46,7 +47,12 @@ def increase_adjacent(current_state: List[List[int]], current_x: int, current_y:
 
 def one_step(current_state: List[List[int]]) -> Tuple[List[List[int]], int]:
     new_step = [[elt + 1 for elt in row] for row in current_state]
-    set_to_explode = {(x, y) for x, row in enumerate(current_state) for y, elt in enumerate(row) if elt == 9}
+    set_to_explode = {
+        (x, y)
+        for x, row in enumerate(current_state)
+        for y, elt in enumerate(row)
+        if elt == 9
+    }
     nb_exploded = 0
     while len(set_to_explode) != 0:
         elt = set_to_explode.pop()
@@ -76,7 +82,7 @@ def part2(start_state: List[List[int]], mx_nb_steps: int) -> int:
     raise ValueError("The max number of steps provided is to small")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     input_day11 = load_input()
 
     print("# Part 1")
