@@ -1,4 +1,19 @@
 [[package]]
+name = "anytree"
+version = "2.8.0"
+description = "Powerful and Lightweight Python Tree Data Structure.."
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+six = ">=1.9.0"
+
+[package.extras]
+dev = ["check-manifest"]
+test = ["coverage"]
+
+[[package]]
 name = "aspy.refactor-imports"
 version = "2.2.0"
 description = "Utilities for refactoring imports in python-like syntax."
@@ -293,6 +308,14 @@ python-versions = ">=3.6.1"
 "aspy.refactor-imports" = "*"
 
 [[package]]
+name = "six"
+version = "1.16.0"
+description = "Python 2 and 3 compatibility utilities"
+category = "main"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*"
+
+[[package]]
 name = "toml"
 version = "0.10.2"
 description = "Python Library for Tom's Obvious, Minimal Language"
@@ -327,9 +350,13 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.8,<3.11"
-content-hash = "6924e4e3d779c6750b0295fb3f8d57a3e63f3bad54b5c2225f636bad29a9ac0c"
+content-hash = "fc2c98c0d74aa1f4f9c97f692501cab7ae1c28d08e08701bcfca80d146d05f9c"
 
 [metadata.files]
+anytree = [
+    {file = "anytree-2.8.0-py2.py3-none-any.whl", hash = "sha256:14c55ac77492b11532395049a03b773d14c7e30b22aa012e337b1e983de31521"},
+    {file = "anytree-2.8.0.tar.gz", hash = "sha256:3f0f93f355a91bc3e6245319bf4c1d50e3416cc7a35cc1133c1ff38306bbccab"},
+]
 "aspy.refactor-imports" = [
     {file = "aspy.refactor_imports-2.2.0-py2.py3-none-any.whl", hash = "sha256:7a18039d2e8be6b02b4791ce98891deb46b459b575c52ed35ab818c4eaa0c098"},
     {file = "aspy.refactor_imports-2.2.0.tar.gz", hash = "sha256:78ca24122963fd258ebfc4a8dc708d23a18040ee39dca8767675821e84e9ea0a"},
@@ -480,6 +507,10 @@ pytest = [
 seed-isort-config = [
     {file = "seed_isort_config-2.2.0-py2.py3-none-any.whl", hash = "sha256:8601fb715a5a4aac39256bbf73c2da6a81f964da9c9d9897ab9074db3663526f"},
     {file = "seed_isort_config-2.2.0.tar.gz", hash = "sha256:be4cfef8f9a3fe8ea1817069c6b624538ac0b429636ec746edeb27e98ed628c8"},
+]
+six = [
+    {file = "six-1.16.0-py2.py3-none-any.whl", hash = "sha256:8abb2f1d86890a2dfb989f9a77cfcfd3e47c2a354b01111771326f8aa26e0254"},
+    {file = "six-1.16.0.tar.gz", hash = "sha256:1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"},
 ]
 toml = [
     {file = "toml-0.10.2-py2.py3-none-any.whl", hash = "sha256:806143ae5bfb6a3c6e736a764057db0e6a0e05e338b5630894a5f779cabb4f9b"},
