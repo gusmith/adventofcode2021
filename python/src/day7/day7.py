@@ -19,12 +19,7 @@ def day7_part2_brute_force(input_list):
         index_count[e] += 1
 
     def count(index):
-        return sum(
-            [
-                x * abs(index - i) * (abs(index - i) + 1) / 2
-                for i, x in enumerate(index_count)
-            ]
-        )
+        return sum([x * abs(index - i) * (abs(index - i) + 1) / 2 for i, x in enumerate(index_count)])
 
     min_consumption = None
     for i in range(0, len(index_count)):
@@ -32,7 +27,7 @@ def day7_part2_brute_force(input_list):
         if min_consumption is None or min_consumption > consumption:
             min_consumption = consumption
             continue
-        print(f"Min consumption {min_consumption} at index {i-1}")
+        print(f"Min consumption {min_consumption} at index {i - 1}")
         return i - 1, min_consumption
 
 

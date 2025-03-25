@@ -55,10 +55,8 @@ def using_priority_queue(
     position_to_check: Tuple[int, int],
     associated_value: int,
     current_optimal_position_risks: Dict[Tuple[int, int], int],
-    current_best: int = None,
-) -> Tuple[
-    List[Tuple[Tuple[int, int], int]], Dict[Tuple[int, int], int], Optional[int]
-]:
+    current_best: int | None = None,
+) -> Tuple[List[Tuple[Tuple[int, int], int]], Dict[Tuple[int, int], int], Optional[int]]:
     positions_to_try = []
     sol = []
     if current_best is not None and associated_value > current_best:
@@ -106,9 +104,7 @@ def part1(mapie: Mapie) -> int:
 
     while not position_queue.empty():
         elt = position_queue.get()
-        list_new_points, optimals, current_best = using_priority_queue(
-            mapie, elt[1], elt[0], optimals, current_best
-        )
+        list_new_points, optimals, current_best = using_priority_queue(mapie, elt[1], elt[0], optimals, current_best)
         for p in list_new_points:
             position_queue.put((p[1], p[0]))
     return optimals[(mapie.max_x, mapie.max_y)]

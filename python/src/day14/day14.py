@@ -18,9 +18,7 @@ def load_input() -> Tuple[str, Dict[str, str]]:
                 rules[splitted[0].strip()] = splitted[1].strip()
                 continue
             if len(polymer) > 0:
-                raise ValueError(
-                    "The row seems to contain a polymer, but it should not..."
-                )
+                raise ValueError("The row seems to contain a polymer, but it should not...")
             polymer = row.strip()
     return polymer, rules
 

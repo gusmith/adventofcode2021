@@ -9,9 +9,7 @@ class Shoot(Enum):
     PASSED = auto()
 
 
-def where_compared_to_zone(
-    current_pos: Tuple[int, int], range_x: Tuple[int, int], range_y: Tuple[int, int]
-) -> Shoot:
+def where_compared_to_zone(current_pos: Tuple[int, int], range_x: Tuple[int, int], range_y: Tuple[int, int]) -> Shoot:
     x, y = current_pos
     if x > range_x[1] or y < range_y[0]:
         return Shoot.PASSED
@@ -20,9 +18,7 @@ def where_compared_to_zone(
     return Shoot.IN
 
 
-def check_this_curve(
-    init_speed: Tuple[int, int], target_x: Tuple[int, int], target_y: Tuple[int, int]
-) -> bool:
+def check_this_curve(init_speed: Tuple[int, int], target_x: Tuple[int, int], target_y: Tuple[int, int]) -> bool:
     x = 0
     y = 0
     v_x, v_y = init_speed

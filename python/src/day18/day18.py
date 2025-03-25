@@ -72,10 +72,7 @@ def explode(tree: Node) -> bool:
             if i + 2 < len(list_leafs):
                 list_leafs[i + 2].name += node2.name
             parent_parent = node1.parent.parent
-            parent_parent.children = [
-                n if n != node1.parent else Node(0, children=[])
-                for n in parent_parent.children
-            ]
+            parent_parent.children = [n if n != node1.parent else Node(0, children=[]) for n in parent_parent.children]
             return True
     return False
 
@@ -108,9 +105,7 @@ def reduce(tree: Node):
 def compute_magnitude(tree: Node) -> int:
     if tree.is_leaf:
         return tree.name
-    return 3 * compute_magnitude(tree.children[0]) + 2 * compute_magnitude(
-        tree.children[1]
-    )
+    return 3 * compute_magnitude(tree.children[0]) + 2 * compute_magnitude(tree.children[1])
 
 
 def part1(list_inputs: List[Node]) -> int:
@@ -141,7 +136,6 @@ def part2():
 
 
 if __name__ == "__main__":
-
     print("# Part 1")
     sol_part1 = part1(load_input())
     print(f"Solution {sol_part1}")

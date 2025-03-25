@@ -52,12 +52,8 @@ def _get_value(computation_type: str) -> int:
     use_most_common_value = computation_type == "oxygen"
     for i in range(len(filtered_rows[0])):
         most_common_value = _most_common_value(filtered_rows, i)
-        value_to_use = (
-            most_common_value if use_most_common_value else not most_common_value
-        )
-        filtered_rows = [
-            row for row in filtered_rows if _bit_criteria(row, i, value_to_use)
-        ]
+        value_to_use = most_common_value if use_most_common_value else not most_common_value
+        filtered_rows = [row for row in filtered_rows if _bit_criteria(row, i, value_to_use)]
         if len(filtered_rows) <= 1:
             break
     assert len(filtered_rows) == 1
