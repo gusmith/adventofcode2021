@@ -69,7 +69,6 @@ class SolverPart2:
         )
 
     def is_number_9(self, this_number: Set[str]) -> bool:
-
         return (
             len(this_number) == 6
             and this_number.issuperset(self.number_1)

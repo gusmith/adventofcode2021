@@ -23,9 +23,7 @@ def test_mapie_2(input_test_part1):
     assert mapie_computed.max_x == mapie_loaded.max_x
     assert mapie_computed.max_y == mapie_loaded.max_y
     for key, value in mapie_loaded.mapie.items():
-        assert (
-            value == mapie_computed.mapie[key]
-        ), f"""Wrong at key {key}, loaded = {value},
+        assert value == mapie_computed.mapie[key], f"""Wrong at key {key}, loaded = {value},
          computed = {mapie_computed.mapie[key]}"""
 
 

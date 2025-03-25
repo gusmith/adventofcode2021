@@ -36,9 +36,7 @@ def recenter(list_points: Set[Tuple[int, int]]):
     return moved_points
 
 
-def part1(
-    list_points: Set[Tuple[int, int]], fold: Tuple[str, int]
-) -> Set[Tuple[int, int]]:
+def part1(list_points: Set[Tuple[int, int]], fold: Tuple[str, int]) -> Set[Tuple[int, int]]:
     list_points_after_fold = set()
     axis = fold[0]
     val = fold[1]
@@ -69,9 +67,7 @@ def print_points(list_points: Set[Tuple[int, int]]):
     print(string_to_print)
 
 
-def part2(
-    list_paths: Set[Tuple[int, int]], folds: List[Tuple[str, int]]
-) -> Set[Tuple[int, int]]:
+def part2(list_paths: Set[Tuple[int, int]], folds: List[Tuple[str, int]]) -> Set[Tuple[int, int]]:
     sol = copy.deepcopy(list_paths)
     for fold in folds:
         sol = part1(sol, fold)

@@ -47,12 +47,7 @@ def increase_adjacent(
 
 def one_step(current_state: List[List[int]]) -> Tuple[List[List[int]], int]:
     new_step = [[elt + 1 for elt in row] for row in current_state]
-    set_to_explode = {
-        (x, y)
-        for x, row in enumerate(current_state)
-        for y, elt in enumerate(row)
-        if elt == 9
-    }
+    set_to_explode = {(x, y) for x, row in enumerate(current_state) for y, elt in enumerate(row) if elt == 9}
     nb_exploded = 0
     while len(set_to_explode) != 0:
         elt = set_to_explode.pop()

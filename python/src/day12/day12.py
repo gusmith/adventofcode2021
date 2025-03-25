@@ -49,12 +49,7 @@ def part1(list_paths: List[Tuple[str, str]], double_1_small_cave: bool = False) 
                 continue
             # Case where it's a small cave, and we already went in, so not possible path
             if step.islower() and step in available_path:
-                if (
-                    not double_1_small_cave
-                    or _check_if_already_visited_twice_same_small_caverns(
-                        available_path
-                    )
-                ):
+                if not double_1_small_cave or _check_if_already_visited_twice_same_small_caverns(available_path):
                     continue
             p = copy.deepcopy(available_path)
             p.append(step)

@@ -16,13 +16,11 @@ def _compare_trees(tree1: Node, tree2: Node):
     list_leafs1 = [n for n in PreOrderIter(tree1)]
     list_leafs2 = [n for n in PreOrderIter(tree2)]
     assert len(list_leafs1) == len(list_leafs2), (
-        f"Tree1:\n{str(RenderTree(tree1, style=AsciiStyle()))}"
-        f"\nTree2:\n{str(RenderTree(tree2, style=AsciiStyle()))}"
+        f"Tree1:\n{str(RenderTree(tree1, style=AsciiStyle()))}\nTree2:\n{str(RenderTree(tree2, style=AsciiStyle()))}"
     )
-    for (a, b) in zip(list_leafs1, list_leafs2):
+    for a, b in zip(list_leafs1, list_leafs2):
         assert a.name == b.name, (
-            f"Tree1:\n{RenderTree(tree1, style=AsciiStyle())}"
-            f"\nTree2:\n{RenderTree(tree1, style=AsciiStyle())}"
+            f"Tree1:\n{RenderTree(tree1, style=AsciiStyle())}\nTree2:\n{RenderTree(tree1, style=AsciiStyle())}"
         )
 
 

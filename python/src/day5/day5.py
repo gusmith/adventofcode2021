@@ -43,7 +43,7 @@ def day5(with_diagonal: bool):
             if max_x - min_x == max_y - min_y and with_diagonal:
                 cond_x = 1 if second[0] > first[0] else -1
                 cond_y = 1 if second[1] > first[1] else -1
-                for (x, y) in zip(
+                for x, y in zip(
                     range(first[0], second[0] + cond_x, cond_x),
                     range(first[1], second[1] + cond_y, cond_y),
                 ):
