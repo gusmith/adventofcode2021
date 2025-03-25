@@ -13,24 +13,23 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [ "3.8", "3.9", "3.10", "3.x" ]
+        python-version: [ "3.11", "3.12", "3.13" ]
     env:
       working-directory: ./python
       test-result-file: test-results.xml
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Setup Python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v5
       with:
         python-version: ${{ matrix.python-version }}
 
     - name: Setup poetry
       run: |
-        pip install --upgrade pip
-        pip install poetry
+        pipx install poetry==2.1.1
 
     - name: Dependency install
       working-directory: ${{env.working-directory}}
@@ -44,7 +43,7 @@ jobs:
 
     - name: Upload Test Results
       if: always()
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: Test Results (Python ${{ matrix.python-version }})
         path: ${{env.working-directory}}/${{env.test-result-file}}
@@ -65,12 +64,12 @@ jobs:
 
     steps:
     - name: Download Artifacts
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v4
       with:
         path: artifacts
 
     - name: Publish Test Results
-      uses: EnricoMi/publish-unit-test-result-action@v1
+      uses: EnricoMi/publish-unit-test-result-action@v2
       with:
         check_name: "Test results"
         files: artifacts/**/*.xml
