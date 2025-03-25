@@ -55,7 +55,7 @@ def using_priority_queue(
     position_to_check: Tuple[int, int],
     associated_value: int,
     current_optimal_position_risks: Dict[Tuple[int, int], int],
-    current_best: int = None,
+    current_best: int | None = None,
 ) -> Tuple[List[Tuple[Tuple[int, int], int]], Dict[Tuple[int, int], int], Optional[int]]:
     positions_to_try = []
     sol = []

@@ -93,6 +93,8 @@ def part2(heatmap: List[List[int]]) -> int:
             elif top_group is None or last_group is None:
                 # Bordering just one other point.=, thus share the same group
                 current_group = top_group if top_group is not None else last_group
+                if current_group is None:
+                    raise ValueError("It should not have happened.")
                 current_row[y] = current_group
                 last_group = current_group
                 group_count[current_group] += 1
