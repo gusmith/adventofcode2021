@@ -1,4 +1,4 @@
 #!/bin/bash -e
 set +x
 
-ruff format
+uv run ruff format

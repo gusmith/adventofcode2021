@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [ "3.11", "3.12", "3.13" ]
+        python-version: [ "3.13", "3.14" ]
     env:
       working-directory: ./python
       test-result-file: test-results.xml
@@ -27,19 +27,19 @@ jobs:
       with:
         python-version: ${{ matrix.python-version }}
 
-    - name: Setup poetry
+    - name: Setup uv
       run: |
-        pipx install poetry==2.1.1
+        pipx install uv
 
     - name: Dependency install
       working-directory: ${{env.working-directory}}
       run: |
-        poetry install
+        uv sync
 
     - name: Pytest
       working-directory: ${{env.working-directory}}
       run: |
-        poetry run pytest --doctest-modules --junit-xml=${{env.test-result-file}}
+        uv run pytest --doctest-modules --junit-xml=${{env.test-result-file}}
 
     - name: Upload Test Results
       if: always()
@@ -51,7 +51,7 @@ jobs:
     - name: Linter
       working-directory: ${{env.working-directory}}
       run: |
-        poetry run ./scripts/lint.sh
+        ./scripts/lint.sh
 
   publish-test-results:
     name: "Publish Tests Results"

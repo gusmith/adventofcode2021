@@ -3,5 +3,5 @@ set +x
 
 module="src"
 
-mypy $module
-ruff check
+uv run mypy $module
+uv run ruff check
